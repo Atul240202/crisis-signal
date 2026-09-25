@@ -5,4 +5,7 @@ dist/
 
 # Public crisis datasets are real people's posts, largely scraped without
 # consent for this use. Fetch them locally; never vendor them into the repo.
-eval/holdout/
+# The scripts are tracked; the corpora they download are not.
+eval/holdout/*.csv
+eval/holdout/*.json
+eval/holdout/*.xlsx
