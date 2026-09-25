@@ -1,0 +1,14 @@
+{
+  "suite": "obfuscation_seeds",
+  "description": "Seeds for the mutation property runner. Each is expanded by every mutator; level must never DROP under mutation. Do not add benign cases here.",
+  "split": "gate",
+  "cases": [
+    { "text": "i want to kill myself", "expect": { "min": 2 }, "note": "seed" },
+    { "text": "i want to end my life", "expect": { "min": 2 }, "note": "seed" },
+    { "text": "thinking about suicide again", "expect": { "min": 2 }, "note": "seed" },
+    { "text": "i'm going to unalive myself", "expect": { "min": 2 }, "note": "algospeak, already evasive in plain form" },
+    { "text": "kms honestly", "expect": { "min": 1, "max": 2 }, "note": "initialism; common and often non-literal — range is wide deliberately" },
+    { "text": "i've got the pills and i'm doing it tonight", "expect": { "min": 4 }, "note": "tier 4 seed — mutation must not drop this below 4" },
+    { "text": "i bought a rope yesterday", "expect": { "min": 3 }, "note": "tier 3 seed" }
+  ]
+}

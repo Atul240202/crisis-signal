@@ -1,0 +1,22 @@
+{
+  "suite": "tier0_idiom",
+  "description": "Trigger tokens in idiomatic use. Resolved by argument structure, not a phrase blocklist.",
+  "split": "dev",
+  "cases": [
+    { "text": "this deadline is killing me", "expect": { "max": 0 }, "rule": "idiom.agent_patient", "note": "inanimate agent, speaker patient" },
+    { "text": "my manager is killing me with these reviews", "expect": { "max": 0 }, "rule": "idiom.agent_patient", "note": "third-person agent" },
+    { "text": "these stairs are going to be the death of me", "expect": { "max": 0 }, "rule": "idiom.mwe", "note": "fixed hyperbolic MWE" },
+    { "text": "i'd rather die than sit through another standup", "expect": { "max": 0 }, "rule": "idiom.comparative_complement", "note": "trivial complement — hyperbole" },
+    { "text": "i'm dying to see the new season", "expect": { "max": 0 }, "rule": "idiom.mwe", "note": "'dying to' = eager" },
+    { "text": "that presentation was suicide", "expect": { "max": 0 }, "rule": "mwe.suicide_as_modifier", "note": "nominal, non-literal" },
+    { "text": "asking for a raise right now would be career suicide", "expect": { "max": 0 }, "rule": "mwe.suicide_as_modifier", "note": "fixed compound" },
+    { "text": "it was a suicide mission from the start", "expect": { "max": 0 }, "rule": "mwe.suicide_as_modifier", "note": "fixed compound" },
+    { "text": "i could just kill for a coffee right now", "expect": { "max": 0 }, "rule": "idiom.mwe", "note": "'kill for' = want badly" },
+    { "text": "you're killing it lately", "expect": { "max": 0 }, "rule": "idiom.mwe", "note": "praise; second person" },
+    { "text": "i nearly died laughing", "expect": { "max": 0 }, "rule": "idiom.mwe", "note": "hyperbolic past" },
+    { "text": "my phone is dead again", "expect": { "max": 0 }, "note": "inanimate subject, literal-adjacent sense" },
+    { "text": "cut me some slack", "expect": { "max": 0 }, "rule": "idiom.mwe", "note": "'cut' in non-self-harm MWE" },
+    { "text": "i'd rather die than keep living like this", "expect": { "min": 1, "max": 2 }, "rule": "idiom.comparative_complement", "note": "SAME construction, living-related complement — must NOT be consumed" },
+    { "text": "i'd rather be dead than be a burden on them", "expect": { "min": 1, "max": 2 }, "rule": "idiom.comparative_complement", "note": "burden frame is a recognised risk marker" }
+  ]
+}

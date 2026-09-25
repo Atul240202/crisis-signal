@@ -1,0 +1,15 @@
+{
+  "suite": "tier3_plan_means",
+  "description": "A method is identified, or means accessed. Gate metric lives here — recall target 98%.",
+  "split": "gate",
+  "cases": [
+    { "text": "i've been saving up my tablets", "expect": { "min": 3 }, "note": "means accumulation, no explicit intent word" },
+    { "text": "i bought a rope yesterday", "expect": { "min": 3 }, "note": "means acquisition; benign in isolation, not in this lexical company" },
+    { "text": "i know exactly how i'd do it and where", "expect": { "min": 3 }, "note": "plan specificity without naming a method" },
+    { "text": "i've been reading about which combination works", "expect": { "min": 3, "block": true }, "note": "method-seeking — the only blocking path" },
+    { "text": "there's a bridge near my place i keep driving to", "expect": { "min": 3 }, "note": "means plus rehearsal behaviour" },
+    { "text": "i have enough of my mother's medication left over", "expect": { "min": 3 }, "note": "access to means, third-party source" },
+    { "text": "i figured out a way that wouldn't hurt", "expect": { "min": 3 }, "note": "plan with lethality consideration" },
+    { "text": "i've written the note already", "expect": { "min": 3 }, "note": "preparatory behaviour" }
+  ]
+}

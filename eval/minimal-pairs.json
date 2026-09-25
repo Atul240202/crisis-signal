@@ -1,0 +1,76 @@
+{
+  "description": "Two inputs a short edit apart that must land on opposite sides of a boundary. Golden cases do not catch L2 regressions; these do. CI asserts every rule id in src/context/ appears in at least one pair.",
+  "pairs": [
+    { "rule": "attribution.speaker_check",
+      "a": "my friend said he wants to die",
+      "b": "i told my friend i want to die",
+      "expect": { "a": { "max": 0, "concernForOther": 2 }, "b": { "min": 2 } },
+      "note": "Reporting frame present in both. Suppress only when attributor is not the speaker AND subject is not the speaker." },
+
+    { "rule": "idiom.comparative_complement",
+      "a": "i'd rather die than go to that meeting",
+      "b": "i'd rather die than keep living like this",
+      "expect": { "a": { "max": 0 }, "b": { "min": 2 } },
+      "note": "Identical construction. The 'than' complement decides: trivial versus living-related." },
+
+    { "rule": "tense.recovery_clause",
+      "a": "i used to be suicidal, i'm much better now",
+      "b": "i used to be suicidal. it's back.",
+      "expect": { "a": { "max": 1 }, "b": { "min": 2 } },
+      "note": "Past marking in both. Recovery clause versus present-tense reversal." },
+
+    { "rule": "negation.clause_scope",
+      "a": "i'm not going to hurt myself",
+      "b": "i'm not going to hurt myself, but i want to die",
+      "expect": { "a": { "max": 1 }, "b": { "min": 2 } },
+      "note": "'but' closes negation scope. Scope-bounded, not window-based." },
+
+    { "rule": "negation.dimension_aware",
+      "a": "i'm not going to do anything",
+      "b": "i'm not going to do anything, i just bought a lot of pills",
+      "expect": { "a": { "max": 1 }, "b": { "min": 3 } },
+      "note": "Negation attenuates ideation only. MEANS is untouched." },
+
+    { "rule": "tense.past_attempt_floor",
+      "a": "i tried to kill myself last year, therapy helped",
+      "b": "i tried to kill myself last year",
+      "expect": { "a": { "max": 1, "historyAttempt": true }, "b": { "min": 1, "historyAttempt": true } },
+      "note": "Neither may zero out. A prior attempt is the strongest known predictor of a future one." },
+
+    { "rule": "mwe.end_it_beats_anaphora",
+      "a": "my office feels like a suicide point and i want to leave it",
+      "b": "my office feels like a suicide point and i want to end it",
+      "expect": { "a": { "max": 0 }, "b": { "min": 2 } },
+      "note": "Same antecedent for 'it'. 'end it' is lexicalised and must be resolved before the pronoun heuristic runs." },
+
+    { "rule": "mwe.suicide_as_modifier",
+      "a": "we went trekking to suicide point last sunday",
+      "b": "i feel like jumping from suicide point",
+      "expect": { "a": { "max": 0 }, "b": { "min": 3 } },
+      "note": "Same compound noun. Proves MWE consumption does not swallow a first-person agent plus act verb." },
+
+    { "rule": "idiom.agent_patient",
+      "a": "my manager is killing me",
+      "b": "i am killing myself",
+      "expect": { "a": { "max": 0 }, "b": { "min": 2 } },
+      "note": "Same verb. Agent identity decides." },
+
+    { "rule": "cessation.bound_phrase",
+      "a": "i want to leave the office",
+      "b": "i want to leave this world",
+      "expect": { "a": { "max": 0 }, "b": { "min": 2 } },
+      "note": "Bare 'leave' is departure. CESSATION_STATE entries must be bound phrases." },
+
+    { "rule": "fiction.cap",
+      "a": "in my story the character wants to disappear",
+      "b": "in my story the character wants to disappear, i think about it too",
+      "expect": { "a": { "max": 1 }, "b": { "min": 2 } },
+      "note": "Fiction attenuates at most one tier and never suppresses. Disclosure-through-fiction is a real pattern, especially among teenagers." },
+
+    { "rule": "anaphora.concrete_antecedent",
+      "a": "this job is unbearable, i can't take it anymore",
+      "b": "i can't take it anymore",
+      "expect": { "a": { "max": 0 }, "b": { "min": 1 } },
+      "note": "Identical second clause. A concrete antecedent resolves it; a bare one does not." }
+  ]
+}

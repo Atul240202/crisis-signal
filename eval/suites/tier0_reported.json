@@ -1,0 +1,15 @@
+{
+  "suite": "tier0_reported",
+  "description": "Attribution. Suppress only when attributor is not the speaker AND the risk-clause subject is not the speaker. Third-party concern reroutes, it does not vanish.",
+  "split": "dev",
+  "cases": [
+    { "text": "the article said suicide rates are rising again", "expect": { "max": 0 }, "rule": "attribution.topical", "note": "topical, no personal subject" },
+    { "text": "we covered suicide risk assessment in training today", "expect": { "max": 0 }, "rule": "attribution.topical", "note": "professional/educational register" },
+    { "text": "my patient said he wants to die", "expect": { "max": 0, "concernForOther": 2 }, "rule": "attribution.speaker_check", "note": "clinician reporting; reroutes to concernForOther" },
+    { "text": "my daughter told me she doesn't want to be here anymore", "expect": { "max": 0, "concernForOther": 2 }, "rule": "attribution.speaker_check", "note": "family disclosure — the most common real hit in a family product" },
+    { "text": "my friend keeps saying he'd be better off gone and i'm scared", "expect": { "max": 0, "concernForOther": 2 }, "rule": "attribution.speaker_check", "note": "third party plus help-seeking by the speaker" },
+    { "text": "i told my doctor i want to die", "expect": { "min": 2 }, "rule": "attribution.speaker_check", "note": "attributor IS the speaker — a disclosure inside a reporting frame" },
+    { "text": "i wrote in my journal that i don't want to wake up", "expect": { "min": 1 }, "rule": "attribution.speaker_check", "note": "self-attribution, still a disclosure" },
+    { "text": "he said i should just die already", "expect": { "max": 1 }, "rule": "attribution.speaker_check", "note": "reported abuse directed at speaker — not the speaker's ideation, but not nothing either" }
+  ]
+}

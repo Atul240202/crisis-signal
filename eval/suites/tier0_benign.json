@@ -1,0 +1,19 @@
+{
+  "suite": "tier0_benign",
+  "description": "Ordinary distress and ordinary conversation. Must not fire. Distress is not risk.",
+  "split": "dev",
+  "cases": [
+    { "text": "work has been really rough this month", "expect": { "max": 0 }, "note": "baseline stress" },
+    { "text": "i'm so tired today", "expect": { "max": 0 }, "note": "fatigue, literal" },
+    { "text": "i hate my job and i want to quit", "expect": { "max": 0 }, "note": "departure intent, concrete object" },
+    { "text": "feeling low lately, nothing specific", "expect": { "max": 0 }, "note": "low mood without ideation" },
+    { "text": "my back pain is unbearable", "expect": { "max": 0 }, "note": "'unbearable' is somatic here" },
+    { "text": "i can't take this weather anymore", "expect": { "max": 0 }, "note": "'can't take it' with concrete antecedent" },
+    { "text": "i give up on this bug", "expect": { "max": 0 }, "note": "'give up' scoped to a task" },
+    { "text": "i'm done with this project", "expect": { "max": 0 }, "note": "'i'm done' with explicit object — contrast bare 'i'm done'" },
+    { "text": "she passed away last spring and i still miss her", "expect": { "max": 0 }, "note": "bereavement, third party, no self-reference" },
+    { "text": "my doctor increased my dose", "expect": { "max": 0 }, "note": "medication mention without means framing" },
+    { "text": "i've been having trouble sleeping", "expect": { "max": 0 }, "note": "sleep complaint, no cessation frame" },
+    { "text": "the deadline is tomorrow and i'm nowhere near done", "expect": { "max": 0 }, "note": "timeline token present, benign context" }
+  ]
+}

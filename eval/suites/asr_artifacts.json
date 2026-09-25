@@ -1,0 +1,15 @@
+{
+  "suite": "asr_artifacts",
+  "description": "Voice path. No punctuation, disfluency, truncation, ASR substitution errors. Segmentation falls back to discourse markers.",
+  "split": "dev",
+  "cases": [
+    { "text": "i want to kill", "expect": { "max": 1 }, "note": "TRUNCATED partial — must be held below tier 2 until final" },
+    { "text": "i want to kill this presentation", "expect": { "max": 0 }, "note": "the completion of the case above" },
+    { "text": "i want to kill myself", "expect": { "min": 2 }, "note": "the other completion" },
+    { "text": "um i dont know i just i dont want to be here anymore you know", "expect": { "min": 1 }, "note": "disfluent, no punctuation" },
+    { "text": "i'm not going to hurt myself but i want to die", "expect": { "min": 2 }, "rule": "negation.clause_scope", "note": "no comma — 'but' alone must close negation scope" },
+    { "text": "i'll end it", "expect": { "min": 2 }, "note": "ASR may render 'i'll send it' as this; accepted false positive, documented" },
+    { "text": "so anyway i've had the tablets ready since monday", "expect": { "min": 3 }, "note": "'anyway' as segment boundary, means disclosed casually mid-stream" },
+    { "text": "no no im fine im fine honestly dont worry about me", "expect": { "min": 0, "max": 1 }, "note": "unprompted denial cluster — must not score below baseline. Whether it should RAISE is a clinical question, flagged for review." }
+  ]
+}

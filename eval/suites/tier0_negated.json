@@ -1,0 +1,14 @@
+{
+  "suite": "tier0_negated",
+  "description": "Negation attenuates ideation only, scoped to the clause. It never touches plan, means, timeline or farewell.",
+  "split": "dev",
+  "cases": [
+    { "text": "i'm not going to hurt myself", "expect": { "max": 1 }, "rule": "negation.clause_scope", "note": "clean denial; floor at 1, never 0 — unprompted denial is itself weak signal" },
+    { "text": "i don't want to die, i just want the pain to stop", "expect": { "max": 1 }, "rule": "negation.clause_scope", "note": "classic presentation; distress without death wish" },
+    { "text": "i would never do that to my kids", "expect": { "max": 1 }, "rule": "negation.clause_scope", "note": "protective reference" },
+    { "text": "i'm not suicidal, i'm just exhausted", "expect": { "max": 1 }, "rule": "negation.clause_scope", "note": "explicit denial plus alternative account" },
+    { "text": "i'm not going to hurt myself, but i want to die", "expect": { "min": 2 }, "rule": "negation.clause_scope", "note": "'but' closes negation scope — second clause scores full" },
+    { "text": "i won't do anything, i just bought a lot of pills", "expect": { "min": 3 }, "rule": "negation.dimension_aware", "note": "denial does not attenuate MEANS" },
+    { "text": "no plan, nothing like that, i just can't see a way forward", "expect": { "min": 1 }, "rule": "negation.dimension_aware", "note": "plan negated, hopelessness intact" }
+  ]
+}

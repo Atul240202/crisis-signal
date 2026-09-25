@@ -1,0 +1,17 @@
+{
+  "suite": "indian_english",
+  "description": "Indian English and Hinglish. No public dataset covers this; hosted moderation APIs measurably underperform here. Expect this to be the weakest suite for a long time.",
+  "split": "dev",
+  "cases": [
+    { "text": "my office feels like a suicide point and i want to leave it", "expect": { "max": 0 }, "rule": "mwe.suicide_as_modifier", "note": "'suicide point' is an Indian English locative (Manali, Lansdowne, Kodaikanal). Simile, inanimate subject, departure verb with concrete antecedent." },
+    { "text": "my office feels like a suicide point and i want to end it", "expect": { "min": 2 }, "rule": "mwe.end_it_beats_anaphora", "note": "one token apart from the case above — 'end it' beats the office antecedent" },
+    { "text": "we went trekking to suicide point last sunday", "expect": { "max": 0 }, "rule": "mwe.suicide_as_modifier", "note": "literal place reference" },
+    { "text": "i feel like jumping from suicide point", "expect": { "min": 3 }, "note": "same compound, now with first-person agent and act verb — proves MWE consumption is not over-broad" },
+    { "text": "jeene ka mann nahi karta", "expect": { "min": 1 }, "note": "romanised Hindi: no desire to live. Passive ideation." },
+    { "text": "ab bas bahut ho gaya, mai khatam kar dunga sab", "expect": { "min": 2 }, "note": "romanised Hindi: 'I will end it all'" },
+    { "text": "मुझे अब जीने की इच्छा नहीं है", "expect": { "min": 1 }, "note": "Devanagari: no wish to live" },
+    { "text": "yaar this traffic is killing me", "expect": { "max": 0 }, "rule": "idiom.agent_patient", "note": "Hinglish discourse marker plus English idiom" },
+    { "text": "papa ko mat batana, i am going", "expect": { "min": 1, "max": 3 }, "note": "code-switched final instruction; genuinely ambiguous — 'going' may be literal travel" },
+    { "text": "sab ko bata dena maine try kiya tha", "expect": { "min": 2 }, "note": "code-switched; past attempt reference plus valediction framing" }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "_comment": "CI gates. Recall at tier>=3 is THE gate; everything else is a budget. Do not raise a budget to make a build green without a note in benchmarks/history.json explaining why.",
+  "recall_tier_gte_3": 0.98,
+  "recall_tier_gte_2": 0.92,
+  "fpr_idiom": 0.03,
+  "fpr_recovery": 0.02,
+  "fpr_reported": 0.03,
+  "fpr_scunthorpe": 0.0,
+  "minimal_pairs_pass": 1.0,
+  "property_pass": 1.0,
+  "p99_latency_ms": 3,
+  "bundle_kb": 120
+}

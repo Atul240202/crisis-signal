@@ -1,0 +1,14 @@
+{
+  "suite": "tier0_recovery",
+  "description": "Past-tense and recovery talk. Flagging recovery punishes disclosure. But a past attempt raises baseline risk and must never zero out.",
+  "split": "dev",
+  "cases": [
+    { "text": "i used to be suicidal but i'm much better now", "expect": { "max": 1, "historyAttempt": false }, "rule": "tense.recovery_clause", "note": "past marking plus explicit recovery clause" },
+    { "text": "back in 2019 i was in a really dark place, therapy helped a lot", "expect": { "max": 1 }, "rule": "tense.recovery_clause", "note": "dated past plus recovery" },
+    { "text": "i've been stable for three years now", "expect": { "max": 0 }, "rule": "tense.recovery_clause", "note": "recovery statement alone" },
+    { "text": "i tried to kill myself last year", "expect": { "min": 1, "max": 2, "historyAttempt": true }, "rule": "tense.past_attempt_floor", "note": "past attempt with NO recovery clause — strongest known predictor, must not zero" },
+    { "text": "i tried to kill myself last year, therapy has helped since", "expect": { "max": 1, "historyAttempt": true }, "rule": "tense.past_attempt_floor", "note": "attenuated by recovery, historyAttempt still true" },
+    { "text": "i used to be suicidal. it's back.", "expect": { "min": 2 }, "rule": "tense.present_reversal", "note": "past marking in clause 1, present risk in clause 2 — per-clause MAX catches this" },
+    { "text": "i thought i was past this but i'm not", "expect": { "min": 1 }, "rule": "tense.present_reversal", "note": "recovery framing negated" }
+  ]
+}

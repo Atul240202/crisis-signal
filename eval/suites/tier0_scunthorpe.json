@@ -1,0 +1,17 @@
+{
+  "suite": "tier0_scunthorpe",
+  "description": "Substring collisions. Zero tolerance — these are deterministic and any hit is a boundary-matching bug.",
+  "split": "gate",
+  "cases": [
+    { "text": "i'm working on my skills this quarter", "expect": { "max": 0 }, "note": "skills contains kill" },
+    { "text": "she's a highly skilled surgeon", "expect": { "max": 0 }, "note": "skilled contains kill" },
+    { "text": "pass me the shell script", "expect": { "max": 0 }, "note": "shell contains hell" },
+    { "text": "my therapist is on leave", "expect": { "max": 0 }, "note": "therapist contains rapist; also 'leave'" },
+    { "text": "run the analysis again", "expect": { "max": 0 }, "note": "analysis collision" },
+    { "text": "the dead letter queue is backing up", "expect": { "max": 0 }, "note": "'dead' in technical MWE" },
+    { "text": "we need to kill that process", "expect": { "max": 0 }, "note": "technical register, non-person patient" },
+    { "text": "deadline, deadlock, and a dead link walk into a bar", "expect": { "max": 0 }, "note": "dense collisions" },
+    { "text": "suicide squeeze in the ninth inning", "expect": { "max": 0 }, "rule": "mwe.suicide_as_modifier", "note": "sports MWE" },
+    { "text": "the car has suicide doors", "expect": { "max": 0 }, "rule": "mwe.suicide_as_modifier", "note": "automotive MWE" }
+  ]
+}

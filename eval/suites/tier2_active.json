@@ -1,0 +1,15 @@
+{
+  "suite": "tier2_active",
+  "description": "Active ideation. Thoughts of killing oneself. No method identified, no means accessed.",
+  "split": "dev",
+  "cases": [
+    { "text": "i want to kill myself", "expect": { "min": 2 }, "note": "canonical; agent == patient == speaker" },
+    { "text": "i've been thinking about ending my life", "expect": { "min": 2 }, "note": "fixed phrase" },
+    { "text": "i want to end it", "expect": { "min": 2 }, "rule": "mwe.end_it_beats_anaphora", "note": "'end it' is lexicalised — must beat pronoun resolution" },
+    { "text": "i keep thinking about suicide", "expect": { "min": 2 }, "note": "direct, first person, no modifier compound" },
+    { "text": "i don't think i can keep going much longer", "expect": { "min": 1, "max": 2 }, "note": "no keyword; boundary case between passive and active" },
+    { "text": "the thoughts are getting louder again", "expect": { "min": 1, "max": 2 }, "note": "idiomatic in-community phrasing, no explicit content" },
+    { "text": "i've started thinking about how i'd do it", "expect": { "min": 2, "max": 3 }, "note": "method ideation without a named method — plan boundary" },
+    { "text": "i'm done", "expect": { "min": 1, "max": 2 }, "note": "bare, no object — contrast 'i'm done with this project' in tier0_benign" }
+  ]
+}
