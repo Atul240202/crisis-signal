@@ -1,0 +1,25 @@
+{
+  "name": "crisis-signal",
+  "version": "0.0.0",
+  "description": "Tiered crisis-risk signal for text and voice transcripts. A triage signal, not a clinical assessment.",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js", "require": "./dist/index.cjs" }
+  },
+  "files": ["dist", "README.md", "INTEGRATION.md"],
+  "scripts": {
+    "eval": "tsx eval/harness.ts",
+    "eval:pairs": "tsx eval/minimal-pairs.ts",
+    "test": "npm run eval && npm run eval:pairs",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": ["crisis", "safety", "moderation", "guardrails", "triage", "self-harm"],
+  "engines": { "node": ">=20" },
+  "dependencies": {},
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "@types/node": "^22.10.2"
+  }
+}

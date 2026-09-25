@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+
+# Public crisis datasets are real people's posts, largely scraped without
+# consent for this use. Fetch them locally; never vendor them into the repo.
+eval/holdout/
