@@ -1,0 +1,32 @@
+{
+  "suite": "hinglish_risk",
+  "description": "Hindi/Hinglish true positives across tiers, romanised and Devanagari. No public dataset covers this and every hosted moderation API underperforms here.",
+  "split": "dev",
+  "cases": [
+    { "text": "jeene ka mann nahi karta ab", "expect": { "min": 1 }, "note": "no desire to live — passive ideation, the most common Hindi formulation" },
+    { "text": "जीने का मन नहीं करता", "expect": { "min": 1 }, "note": "Devanagari of the case above. Script invariance is a property test." },
+    { "text": "sabke liye bojh ban gaya hoon main", "expect": { "min": 1 }, "note": "'I've become a burden to everyone'. Burden ideation is heavily represented in Indian presentations." },
+    { "text": "मैं सबके लिए बोझ हूँ", "expect": { "min": 1 }, "note": "Devanagari burden" },
+    { "text": "jeene se thak gaya hoon", "expect": { "min": 1 }, "note": "tired OF LIVING — contrast plain 'thak gaya hoon' in the benign suite" },
+    { "text": "ab nahi hota mujhse, bas bohot ho gaya", "expect": { "min": 1 }, "note": "'I can't do this anymore' — no risk vocabulary at all" },
+    { "text": "kaash main so jaun aur uthun hi na", "expect": { "min": 1 }, "note": "wish to sleep and not wake — the Hindi form of the English recall workhorse" },
+    { "text": "mai khatam kar dunga sab", "expect": { "min": 2 }, "rule": "idiom.hi.khatam_object", "note": "'khatam kar dunga' with 'sab' (everything) and no concrete object — contrast 'khana khatam kar do'" },
+    { "text": "kuch kar lunga main apne aap ko", "expect": { "min": 2 }, "note": "'I'll do something to myself' — the dominant Indian euphemism. No explicit word; pure template work." },
+    { "text": "bas ab khudkushi hi ek rasta hai", "expect": { "min": 2 }, "note": "khudkushi (Urdu-origin) is more common in speech than aatmahatya" },
+    { "text": "मुझे आत्महत्या करनी है", "expect": { "min": 2 }, "note": "Devanagari, formal register" },
+    { "text": "mar jaana chahta hoon main", "expect": { "min": 2 }, "rule": "hi.maarna_vs_marna", "note": "marna (to die) with first-person subject — the other side of the maarna collision" },
+    { "text": "neend ki goliyan jama kar rahi hoon", "expect": { "min": 3 }, "note": "accumulating sleeping pills — means, stated without intent language" },
+    { "text": "chhat pe jaake dekhta hoon roz", "expect": { "min": 2, "max": 3 }, "note": "'I go up to the roof and look every day' — rehearsal behaviour, genuinely ambiguous out of context" },
+    { "text": "sab ko maaf kar dena mujhe", "expect": { "min": 3 }, "note": "'forgive me, everyone' — a dominant valediction marker in Indian suicide notes" },
+    { "text": "मुझे माफ़ कर देना, मेरी वजह से सबको तकलीफ हुई", "expect": { "min": 3 }, "note": "Devanagari: forgive me, everyone suffered because of me — apology plus burden" },
+    { "text": "aaj raat ke baad koi pareshani nahi hogi", "expect": { "min": 4 }, "note": "'after tonight there will be no trouble' — timeline plus euphemistic completion, zero keywords" },
+    { "text": "kisi ko mat batana, main ja raha hoon", "expect": { "min": 3 }, "note": "secrecy instruction plus departure. 'ja raha hoon' is ambiguous alone; the secrecy clause disambiguates." },
+    { "text": "meri beti keh rahi hai use nahi jeena", "expect": { "max": 0, "concernForOther": 2 }, "rule": "attribution.speaker_check", "note": "'my daughter says she doesn't want to live' — third-party disclosure, reroutes" },
+    { "text": "pehle bhi try kiya tha maine, do saal pehle", "expect": { "min": 1, "max": 2, "historyAttempt": true }, "rule": "tense.past_attempt_floor", "note": "past attempt, no recovery clause — must not zero" },
+    { "text": "pehle suicidal tha par ab theek hoon, counselling chal rahi hai", "expect": { "max": 1 }, "rule": "tense.recovery_clause", "note": "code-switched past marking plus explicit recovery" },
+    { "text": "main apne aap ko nuksan nahi pahunchaunga", "expect": { "max": 1 }, "rule": "negation.clause_scope", "note": "'I won't harm myself' — clean Hindi denial, floors at 1" },
+    { "text": "main kuch nahi karunga, bas goliyan rakh li hain", "expect": { "min": 3 }, "rule": "negation.dimension_aware", "note": "denial does not attenuate MEANS in Hindi either" },
+    { "text": "i just can't anymore yaar, bas ab jeene ka mann nahi", "expect": { "min": 1 }, "note": "mid-clause code-switch, English then Hindi — the normal register, not an edge case" },
+    { "text": "everything is fine bas thoda sa khatam feel ho raha hai", "expect": { "min": 0, "max": 1 }, "note": "reassurance plus hedged distress; deliberately wide range" }
+  ]
+}

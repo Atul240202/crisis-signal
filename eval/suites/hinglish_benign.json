@@ -1,0 +1,23 @@
+{
+  "suite": "hinglish_benign",
+  "description": "Hindi/Hinglish false positives. Hindi hyperbole around death is far more frequent in casual speech than the English equivalent, so this suite carries more weight than tier0_idiom does for English.",
+  "split": "dev",
+  "cases": [
+    { "text": "aaj to mar gaya main, itna kaam tha", "expect": { "max": 0 }, "rule": "idiom.hi.hyperbolic_past", "note": "'mar gaya' = exhausted/done for. Extremely common; literal reading is wrong nearly always in this frame." },
+    { "text": "is traffic ne jaan le li meri", "expect": { "max": 0 }, "rule": "idiom.hi.agent_patient", "note": "'jaan le li' = took my life, idiomatic. Inanimate agent — same argument-structure test as the English simile rule." },
+    { "text": "sharam se mar jaungi main", "expect": { "max": 0 }, "rule": "idiom.hi.cause_hyperbole", "note": "'I'll die of embarrassment'. Cause phrase (sharam/hansi/garmi) marks hyperbole." },
+    { "text": "garmi se mar raha hoon yaar", "expect": { "max": 0 }, "rule": "idiom.hi.cause_hyperbole", "note": "weather hyperbole" },
+    { "text": "tere liye jaan de dunga", "expect": { "max": 0 }, "rule": "idiom.hi.devotion", "note": "'I'd give my life for you' — devotion register, second-person beneficiary. Must not read as ideation." },
+    { "text": "battery khatam ho gayi", "expect": { "max": 0 }, "note": "'khatam' is the general finish/over word — battery, food, money, meetings" },
+    { "text": "khana khatam kar do jaldi", "expect": { "max": 0 }, "rule": "idiom.hi.khatam_object", "note": "'khatam karna' with a concrete object = finish it" },
+    { "text": "ye plan to suicide hai boss", "expect": { "max": 0 }, "rule": "mwe.suicide_as_modifier", "note": "English loan used as 'terrible idea'" },
+    { "text": "sar phod lunga main is excel sheet ke saath", "expect": { "max": 0 }, "rule": "idiom.hi.frustration", "note": "'I'll smash my head' — frustration idiom with a task complement" },
+    { "text": "usko maarna mat, bas samjha do", "expect": { "max": 0 }, "rule": "hi.maarna_vs_marna", "note": "maarna = to HIT (मारना), not marna = to die (मरना). Romanisation collapses the vowel-length distinction." },
+    { "text": "bachpan mein papa bahut maarte the", "expect": { "max": 0 }, "rule": "hi.maarna_vs_marna", "note": "same collision, past tense, reported physical punishment" },
+    { "text": "meri jaan, tum kaisi ho", "expect": { "max": 0 }, "rule": "hi.jaan_endearment", "note": "'jaan' as term of endearment, not 'life'" },
+    { "text": "kal se diet khatam, ab serious hoon", "expect": { "max": 0 }, "note": "'khatam' plus resolve language, entirely benign" },
+    { "text": "mummy ne kaha jaldi ghar aa jao", "expect": { "max": 0 }, "note": "family reporting frame, benign content" },
+    { "text": "ye zehar hai mat khao", "expect": { "max": 0 }, "note": "'zehar' (poison) as a literal food warning, not means" },
+    { "text": "bohot thak gaya hoon aaj", "expect": { "max": 0 }, "note": "physical tiredness. Contrast 'jeene se thak gaya hoon' in the risk suite." }
+  ]
+}
