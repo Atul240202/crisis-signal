@@ -5,17 +5,35 @@
   "license": "MIT",
   "type": "module",
   "exports": {
-    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js", "require": "./dist/index.cjs" }
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
   },
-  "files": ["dist", "README.md", "INTEGRATION.md"],
+  "files": [
+    "dist",
+    "README.md",
+    "INTEGRATION.md"
+  ],
   "scripts": {
     "eval": "tsx eval/harness.ts",
     "eval:pairs": "tsx eval/minimal-pairs.ts",
-    "test": "npm run eval && npm run eval:pairs",
-    "typecheck": "tsc --noEmit"
+    "test": "npm run eval && npm run eval:pairs && npm run eval:props",
+    "typecheck": "tsc --noEmit",
+    "eval:props": "tsx eval/properties/run.ts"
   },
-  "keywords": ["crisis", "safety", "moderation", "guardrails", "triage", "self-harm"],
-  "engines": { "node": ">=20" },
+  "keywords": [
+    "crisis",
+    "safety",
+    "moderation",
+    "guardrails",
+    "triage",
+    "self-harm"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {},
   "devDependencies": {
     "tsx": "^4.19.2",

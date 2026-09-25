@@ -11,3 +11,4 @@ jobs:
       - run: npm run typecheck
       - run: npm run eval
       - run: npm run eval:pairs
+      - run: npm run eval:props
